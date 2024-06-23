@@ -4,27 +4,20 @@ public class BallReferee : MonoBehaviour
 {
     [SerializeField] Referee _referee;
 
-    GameObject _bat;
-    bool collisonbat;
+    Batcollison _bat;
     private void Start()
     {
-        _bat = GameObject.FindGameObjectWithTag("bat");
-        var bat = _bat.GetComponent<Batcollison>();
-        collisonbat = bat.m_boolcollison;
-    }
-
-    private void Update()
-    {
-       
-
+        _bat = GameObject.Find("baseball_bat").GetComponent<Batcollison>();
+;       
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collisonbat ==true)
+        if (_bat.boolcollison ==true)
         {
             Debug.Log("aaa");
             _referee.ImageChange(3);
-            collisonbat=false;
+            _bat.boolcollison=false;
+
         }
         else
         {

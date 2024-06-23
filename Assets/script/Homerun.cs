@@ -7,18 +7,15 @@ using UnityEngine;
 public class Homerun : MonoBehaviour
 {
     [SerializeField] Referee _referee;
-    [SerializeField] GameObject _score;
-    public int _scoreIndex;
+    Score _score;
 
     private void Start()
     {
-        _scoreIndex = 0;
-        
-        //_scoreIndex = Gamemanager.GetComponent<Score>();
+        _score = GameObject.Find("Gamemanager").GetComponent<Score>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         _referee.ImageChange(2);
-        _scoreIndex += 1;
+        _score.score += 1;
     }
 }

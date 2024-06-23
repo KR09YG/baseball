@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class Batcollison : MonoBehaviour
 {
-  public bool m_boolcollison = false;
+  public bool boolcollison = false;
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject)
         {
-            m_boolcollison = true;
+            Debug.Log("ttt");
+            boolcollison = true;
         }
         
     }
     private void Update()
     {
-        if(m_boolcollison == true)
+        if(boolcollison == true)
         {
-            Debug.Log("true");
+            //Debug.Log("true");
         }
     }
 }

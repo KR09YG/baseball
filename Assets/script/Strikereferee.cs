@@ -7,29 +7,27 @@ public class Strikereferee : MonoBehaviour
     [SerializeField] Referee _referee;
 
    public GameObject _bat;
-   public bool _batcollison;
-    
+    Batcollison _bat1;
+    Out strick;
     private void Start()
     {
-        _bat = GameObject.FindGameObjectWithTag("bat"); 
-        var bat = _bat.GetComponent<Batcollison>();
-        _batcollison = bat.m_boolcollison;
+        _bat1 = GameObject.Find("baseball_bat").GetComponent<Batcollison>();
+        strick = GameObject.Find("Gamemanager").GetComponent<Out>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_batcollison == true)
+        if (_bat1.boolcollison == true)
         {
-            Debug.Log("isijfdsas;");
+            Debug.Log("aaa");
             _referee.ImageChange(3);
-            _batcollison = false;
-            Destroy(collision.gameObject);
-
+            _bat1.boolcollison = false;
         }
         else
         {
             _referee.ImageChange(0);
             Destroy(collision.gameObject);
+            strick._strickcount += 1;
         }       
     }
     

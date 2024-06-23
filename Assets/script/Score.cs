@@ -5,9 +5,12 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    GameObject scoretext=default;
-    [SerializeField] Text text;
+    
+    [SerializeField] Text stext;
     public int score = 0;
+    public int runcount = 0;
+
+      
     void Start()
     {
         
@@ -15,8 +18,9 @@ public class Score : MonoBehaviour
 
     public void Update()
     {
+        Debug.Log(runcount);
+        stext = stext.GetComponent<Text>();
+        stext.text = (score.ToString()+"“_");
         
-        text = scoretext.GetComponent<Text>();
-        text.text = (score.ToString()+"“_");
     }
 }

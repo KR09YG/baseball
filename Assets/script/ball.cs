@@ -12,10 +12,4 @@ public class ball : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.down * m_speed;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
