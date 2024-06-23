@@ -8,8 +8,7 @@ public class Score : MonoBehaviour
     
     [SerializeField] Text stext;
     public int score = 0;
-    public int runcount = 0;
-
+   
       
     void Start()
     {
@@ -18,7 +17,7 @@ public class Score : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log(runcount);
+        
         stext = stext.GetComponent<Text>();
         stext.text = (score.ToString()+"“_");
         
