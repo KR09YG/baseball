@@ -30,7 +30,7 @@ public class Out : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(_ballcount);
+        
         if (_strickcount >= 1)
         {
             _strickimage.color = new Color(255, 100, 0);
@@ -92,15 +92,12 @@ public class Out : MonoBehaviour
         if(_outcount > 2 )
         {
             
-        }
-        if(_ballcount > 3 )
-        {
-
-        }
+        }     
         if(_strickcount > 2)
         {
             _outcount += 1;
             _strickcount = 0;
+            _ballcount = 0;
         }
         if ( _ballcount > 3 )
         {

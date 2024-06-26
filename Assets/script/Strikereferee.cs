@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Strikereferee : MonoBehaviour
 {
@@ -9,10 +10,23 @@ public class Strikereferee : MonoBehaviour
    public GameObject _bat;
     Batcollison _bat1;
     Out strick;
+    [SerializeField] Text text;
+    float _timer;
     private void Start()
     {
+        text = text.GetComponent<Text>();
         _bat1 = GameObject.Find("baseball_bat").GetComponent<Batcollison>();
         strick = GameObject.Find("Gamemanager").GetComponent<Out>();
+        
+    }
+    private void Update()
+    {
+        _timer += Time.deltaTime;
+        Debug.Log(_timer);
+        if (_timer > 2)
+        {
+            text.text = " ";
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,7 +39,12 @@ public class Strikereferee : MonoBehaviour
         }
         else
         {
-            _referee.ImageChange(0);
+            _timer = 0;
+            if(_timer == 0f)
+            {
+                Debug.Log(_timer);
+                text.text = "STRIKE";
+            }
             Destroy(collision.gameObject);
             strick._strickcount += 1;
         }       
