@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class BallReferee : MonoBehaviour
 {
-    
-
     Batcollison _bat;
     Out ball;
     private void Start()

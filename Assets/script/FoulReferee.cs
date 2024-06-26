@@ -7,7 +7,6 @@ public class FoulReferee : MonoBehaviour
 {
     Out _out;
     // Start is called before the first frame update
-    [SerializeField] Referee _referee;
     [SerializeField] Text _text;
     float timer = 0f;
     private void Start()

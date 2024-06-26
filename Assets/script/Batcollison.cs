@@ -10,7 +10,7 @@ public class Batcollison : MonoBehaviour
     {
         if (collision.gameObject)
         {
-            Debug.Log("ttt");
+            //Debug.Log("ttt");
             boolcollison = true;
         }
         
