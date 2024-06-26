@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BallReferee : MonoBehaviour
 {
-    [SerializeField] Referee _referee;
+    
 
     Batcollison _bat;
     Out ball;
@@ -16,14 +16,11 @@ public class BallReferee : MonoBehaviour
     {
         if (_bat.boolcollison ==true)
         {
-            Debug.Log("aaa");
-            _referee.ImageChange(3);
-            _bat.boolcollison=false;
-            
+            Debug.Log("aaa");            
+            _bat.boolcollison=false;            
         }
         else
         {
-            _referee.ImageChange(1);
             Destroy(collision.gameObject);
             ball._ballcount +=1;
         }

@@ -18,7 +18,7 @@ GameObject:
   m_TagString: ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2202178579946610641
 Transform:
@@ -162,4 +162,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 15
-  m_speedup: 2.5
+  m_speedup: 6.67
+  _changeY: 0
