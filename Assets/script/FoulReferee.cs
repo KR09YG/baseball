@@ -15,7 +15,7 @@ public class FoulReferee : MonoBehaviour
     }
     private void Update()
     {
-        timer += Time.deltaTime;
+        //timer += Time.deltaTime;
         if (timer > 2f)
         {
             _text.text = " ";

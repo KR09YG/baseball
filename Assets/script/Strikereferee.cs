@@ -11,44 +11,55 @@ public class Strikereferee : MonoBehaviour
     Batcollison _bat1;
     Out strick;
     [SerializeField] Text text;
-    float _timer =0f;
+    float _timer;
+    bool _isTimer;
     private void Start()
     {
         text = text.GetComponent<Text>();
         _bat1 = GameObject.Find("baseball_bat").GetComponent<Batcollison>();
         strick = GameObject.Find("Gamemanager").GetComponent<Out>();
-        
+        text.text = " ";
     }
     private void Update()
     {
         Debug.Log(_timer);
-        _timer += Time.deltaTime;
-        if (_timer > 4f)
+        if (_isTimer)
         {
-            text.text = " ";
+            _timer += Time.deltaTime;
+            if (_timer > 2.5f)
+            {
+                _timer = 0;
+                _isTimer = false;
+                text.enabled = false;
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _timer = 0f;
+       
         if (_bat1.boolcollison == true)
         {
-            if (_timer == 0f)
+            _isTimer = true;
+            text.enabled = true;
+            text.text = "FOUL";
+            text.color = Color.yellow;
+            _bat1.boolcollison = false;
+            if ( strick._strickcount < 2)
             {
-                Debug.Log("aaa");
-                text.text = "FOUL";
-                text.color = Color.yellow;
-                _bat1.boolcollison = false;
+                strick._strickcount += 1;
             }
         }
-        
-                Debug.Log(_timer);
-                text.text = "STRIKE";
-                text.color = Color.yellow;
-            
-            Destroy(collision.gameObject);
+        else
+        {
+            _isTimer = true;
+            text.enabled = true;
+            text.text = "STRIKE";
+            text.color = Color.yellow;
             strick._strickcount += 1;
+        }
+            Destroy(collision.gameObject);
+           
              
     }
     
