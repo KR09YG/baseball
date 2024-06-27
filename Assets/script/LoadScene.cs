@@ -3,8 +3,20 @@ using UnityEngine.SceneManagement;//UnityƒGƒ“ƒWƒ“‚ÌƒV[ƒ“ŠÇ—ƒvƒƒOƒ‰ƒ€‚ğ—˜—p‚·‚
 
 public class SceneLoader : MonoBehaviour //SceneLoader‚Æ‚¢‚¤–¼‘O‚É‚µ‚Ü‚·
 {
-    public void Start_button(string Sceneneme) //string_button‚Æ‚¢‚¤–¼‘O‚É‚µ‚Ü‚·
+      float timer = 0;
+
+    private void Update()
     {
-        SceneManager.LoadScene(Sceneneme);//second‚ğŒÄ‚Ño‚µ‚Ü‚·
+        timer += Time.deltaTime;
+    }
+    public void EndingGame()
+    {
+        GetComponent<AudioSource>().Play();
+        //3•bŒã‚Éƒƒ\ƒbƒh‚ğÀs‚·‚é
+        Invoke("Start_button", 3);
+    }
+    public void Start_button()//string_button‚Æ‚¢‚¤–¼‘O‚É‚µ‚Ü‚·
+    {
+            SceneManager.LoadScene("baseballgame");//second‚ğŒÄ‚Ño‚µ‚Ü‚·
     }
 }

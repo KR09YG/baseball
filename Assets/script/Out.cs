@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro.EditorUtilities;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Out : MonoBehaviour
 {
@@ -15,9 +16,13 @@ public class Out : MonoBehaviour
     SpriteRenderer _ballimage;
     SpriteRenderer _ballimage2;
     SpriteRenderer _ballimage3;
+    [SerializeField] Text text;
+    float _timer;
+    bool _isTimer;
     // Start is called before the first frame update
     void Start()
     {
+        text.text = " ";
         _strickimage = GameObject.Find("strick1").GetComponent<SpriteRenderer>();
         _strickimage2 = GameObject.Find("strick2").GetComponent<SpriteRenderer>();
         _outimage = GameObject.Find("out").GetComponent<SpriteRenderer>();
@@ -30,7 +35,16 @@ public class Out : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (_isTimer)
+        {
+            _timer += Time.deltaTime;
+            if (_timer > 2.5f)
+            {
+                _timer = 0;
+                _isTimer = false;
+                text.enabled = false;
+            }
+        }
         if (_strickcount >= 1)
         {
             _strickimage.color = new Color(255, 100, 0);
@@ -95,6 +109,10 @@ public class Out : MonoBehaviour
         }     
         if(_strickcount > 2)
         {
+            _isTimer = true;
+            text.enabled = true;
+            text.text = "OUT";
+            text.color = Color.red;
             _outcount += 1;
             _strickcount = 0;
             _ballcount = 0;
