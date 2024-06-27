@@ -16,7 +16,7 @@ public class BallReferee : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(_timer);
+        
         if (_isTimer)
         {
             _timer += Time.deltaTime;
