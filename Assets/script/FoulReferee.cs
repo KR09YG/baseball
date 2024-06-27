@@ -8,27 +8,26 @@ public class FoulReferee : MonoBehaviour
     Out _out;
     // Start is called before the first frame update
     [SerializeField] Text _text;
-    float timer = 0f;
+    float _timer;
+    bool _isTimer;
     private void Start()
     {
         _out = GameObject.Find("Gamemanager").GetComponent<Out>();
+        _text.text = " ";
     }
     private void Update()
     {
         //timer += Time.deltaTime;
-        if (timer > 2f)
-        {
-            _text.text = " ";
-        }
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        timer = 0f;
+        
         if (_out._strickcount < 2)
         {
             _out._strickcount += 1;
         }
-        if(timer == 0f)
+        if(_timer == 0f)
         {
             _text.text = "FOUL";
             _text.color = Color.yellow;
