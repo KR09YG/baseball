@@ -33,12 +33,16 @@ public class Homerun : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _isTimer = true;
-        text.enabled = true;
-        text.text = "HOMERUN";
-        text.color = Color.red;
-        _score.score += 1;
+        if ( _out._outcount < 2 )
+        {
+            _isTimer = true;
+            text.enabled = true;
+            text.text = "HOMERUN";
+            text.color = Color.red;
+            _score.score += 1;
             _out._strickcount = 0;
             _out._ballcount = 0;
+        }
+       
     }
 }

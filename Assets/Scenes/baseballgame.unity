@@ -3952,7 +3952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9004f8ace27891840a9b8efbb3874bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _batSpeed: 7
+  _batSpeed: 5
   _rotateZ: 0
   _interval: 3
   m_generateOnStart: 1
