@@ -14,7 +14,7 @@ public class BallReferee : MonoBehaviour
     private void Start()
     {
         bat = GameObject.Find("Circle").GetComponent<Bat>();
-        _bat = GameObject.Find("baseball_bat").GetComponent<Batcollison>();
+        _bat = GameObject.Find("Square (5)").GetComponent<Batcollison>();
          ball = GameObject.Find("Gamemanager").GetComponent<Out>();
         text.text = " ";
     }

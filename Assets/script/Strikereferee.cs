@@ -13,10 +13,11 @@ public class Strikereferee : MonoBehaviour
     [SerializeField] Text text;
     float _timer;
     bool _isTimer;
+   
     private void Start()
     {
         text = text.GetComponent<Text>();
-        _bat1 = GameObject.Find("baseball_bat").GetComponent<Batcollison>();
+        _bat1 = GameObject.Find("Square (5)").GetComponent<Batcollison>();
         strick = GameObject.Find("Gamemanager").GetComponent<Out>();
         text.text = " ";
     }

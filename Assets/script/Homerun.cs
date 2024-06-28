@@ -9,12 +9,13 @@ public class Homerun : MonoBehaviour
     Out _out;
     float _timer;
     bool _isTimer;
-
+    AudioSource _audioSource;
     private void Start()
     {
         _out = GameObject.Find("Gamemanager").GetComponent<Out>();
         _score = GameObject.Find("Gamemanager").GetComponent<Score>();
         text.text = " ";
+        _audioSource = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -42,6 +43,7 @@ public class Homerun : MonoBehaviour
             _score.score += 1;
             _out._strickcount = 0;
             _out._ballcount = 0;
+            _audioSource.Play();
         }
        
     }
