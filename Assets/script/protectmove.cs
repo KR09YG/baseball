@@ -17,9 +17,7 @@ public class protectmove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        x = this.transform.position.x;
-        Debug.Log(x);
+
         if ( Input.GetKeyDown(KeyCode.W) ) 
         {
             rb.velocity = Vector2.right * _movespeed;

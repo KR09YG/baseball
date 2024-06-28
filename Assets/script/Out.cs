@@ -106,7 +106,7 @@ public class Out : MonoBehaviour
         {
             button.SetActive(true);
             text.text = "GAMESET";
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
         }     
         if(_strickcount > 2)
         {

@@ -16,6 +16,7 @@ public class Protect : MonoBehaviour
         protect = GameObject.Find("Gamemanager").GetComponent<Out>();
         gameobject = GameObject.FindGameObjectWithTag("protect");
         
+        
     }
     private void Update()
     {
@@ -35,7 +36,7 @@ public class Protect : MonoBehaviour
     // Update is called once per frame
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag != "protect")
+        if (collision.gameObject.tag == "ball")
         {
             _isTimer = true;
             text.enabled = true;
