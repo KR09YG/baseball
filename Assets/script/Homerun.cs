@@ -33,7 +33,7 @@ public class Homerun : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ( _out._outcount < 2 )
+        if ( _out._outcount < 3 )
         {
             _isTimer = true;
             text.enabled = true;
