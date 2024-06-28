@@ -30,8 +30,7 @@ public class Protect : MonoBehaviour
                 _isTimer = false;
                 text.enabled = false;
             }
-            Debug.Log(_timer);
-
+           
         }
     }
     // Update is called once per frame
