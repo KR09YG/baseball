@@ -8,11 +8,13 @@ public class Protect : MonoBehaviour
     Out protect;
     [SerializeField] Text text;
     float _timer;
+    GameObject gameobject;
     bool _isTimer;
     // Start is called before the first frame update
     void Start()
     {
         protect = GameObject.Find("Gamemanager").GetComponent<Out>();
+        gameobject = GameObject.FindGameObjectWithTag("protect");
         
     }
     private void Update()
@@ -33,11 +35,17 @@ public class Protect : MonoBehaviour
     // Update is called once per frame
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        _isTimer = true;
-        text.enabled = true;
-        text.text = "OUT";
-        text.color = Color.red;
-        protect._outcount += 1;
-        Destroy(collision.gameObject);
+        if (collision.gameObject.tag != "protect")
+        {
+            _isTimer = true;
+            text.enabled = true;
+            text.text = "OUT";
+            text.color = Color.red;
+            protect._outcount += 1;
+            protect._strickcount = 0;
+            protect._ballcount = 0;
+            Destroy(collision.gameObject);
+        }
+        
     }
 }

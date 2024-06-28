@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ball
   - bat
+  - protect
   layers:
   - Default
   - TransparentFX

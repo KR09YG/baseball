@@ -31,7 +31,7 @@ public class pitcher : MonoBehaviour
         _timer += Time.deltaTime;
         //Debug.Log(_timer);
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if ( _timer > _interval )
             {
@@ -40,7 +40,7 @@ public class pitcher : MonoBehaviour
                 Instantiate(m_ball1, _hand.transform.position, Quaternion.identity);
             }           
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             if (_timer > _interval)
             {
@@ -49,7 +49,7 @@ public class pitcher : MonoBehaviour
                 Instantiate(m_ball2, _hand.transform.position, Quaternion.identity);
             }
         }
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             if (_timer > _interval)
             {                
@@ -58,7 +58,7 @@ public class pitcher : MonoBehaviour
                 Instantiate(m_ball3, _hand.transform.position, Quaternion.identity);
             }
         }
-        if(Input.GetKeyDown(KeyCode.D))
+        if(Input.GetKeyDown(KeyCode.R))
         {
             if (_timer > _interval)
             {          
