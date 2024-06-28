@@ -5,7 +5,7 @@ public class Bat : MonoBehaviour
 {
     [SerializeField] float _batSpeed;
     //private Transform _transform = default;
-    private float _rotateZ = 0f;
+    public float _rotateZ = 0f;
     bool _isSwing;
     [SerializeField] float _interval = 1f;
     float _timer;
@@ -30,7 +30,7 @@ public class Bat : MonoBehaviour
             if (_timer > _interval)
             {
                 
-                if (_rotateZ < 220)
+                if (_rotateZ <= 220)
                 {
                     _rotateZ += Time.deltaTime + _batSpeed;
                     transform.localEulerAngles = new(transform.localEulerAngles.x, transform.localEulerAngles.y, _rotateZ);
