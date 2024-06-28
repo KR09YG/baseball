@@ -13,7 +13,7 @@ public class Protect : MonoBehaviour
     void Start()
     {
         protect = GameObject.Find("Gamemanager").GetComponent<Out>();
-        text.text = " ";
+        
     }
     private void Update()
     {

@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class Out : MonoBehaviour
 {
@@ -19,6 +17,7 @@ public class Out : MonoBehaviour
     [SerializeField] Text text;
     float _timer;
     bool _isTimer;
+    [SerializeField]  GameObject button;
     // Start is called before the first frame update
     void Start()
     {
@@ -105,7 +104,9 @@ public class Out : MonoBehaviour
         
         if(_outcount > 2 )
         {
-            
+            button.SetActive(true);
+            text.text = "GAMESET";
+            Time.timeScale = 0;
         }     
         if(_strickcount > 2)
         {
