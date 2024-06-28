@@ -12,6 +12,7 @@ public class pitcher : MonoBehaviour
     [SerializeField] GameObject m_ball3 = default;
     [SerializeField] GameObject m_ball4 = default;
     [SerializeField] GameObject _hand = default;
+    [SerializeField] GameObject m_ball5 = default;
     [SerializeField] bool m_generateOnStart = true;
     [SerializeField] float _interval = 3f;
     [SerializeField] float movespeed;
@@ -68,6 +69,15 @@ public class pitcher : MonoBehaviour
                 _timer = 0;
                 bulletpoint = _hand.transform.position;
                 Instantiate(m_ball4, _hand.transform.position, Quaternion.identity);
+            }
+        }
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            if (_timer > _interval)
+            {          
+                _timer = 0;
+                bulletpoint = _hand.transform.position;
+                Instantiate(m_ball5, _hand.transform.position, Quaternion.identity);
             }
         }
         if(Input.GetKeyDown(KeyCode.Z))
