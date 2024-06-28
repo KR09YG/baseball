@@ -16,10 +16,8 @@ public class forkball : MonoBehaviour
     GameObject _gameObject;
     Out _protect;
     [SerializeField] Text text;
-    float _timer;
-    GameObject gameobject;
-    bool _isTimer;
-    GameObject ball;
+    
+   
     // Use this for initialization
     private void Start()
     {
@@ -27,25 +25,11 @@ public class forkball : MonoBehaviour
         rBody = this.GetComponent<Rigidbody2D>();
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         Vector2 Forkballpos = this.transform.position;
-        _gameObject = GameObject.FindGameObjectWithTag("protect");
             rb.velocity = Vector2.down * m_speed;
-        ball = GameObject.FindGameObjectWithTag("ball");
     }
 
     private void Update()
     {
-
-        if (_isTimer)
-        {
-            _timer += Time.deltaTime;
-            if (_timer > 2.5f)
-            {
-                _timer = 0;
-                _isTimer = false;
-                text.enabled = false;
-            }
-
-        }
         if (transform.position.y < _changeY)
         {
             _isFork = true;
@@ -57,9 +41,6 @@ public class forkball : MonoBehaviour
         }
         
 }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-       Destroy(gameObject); 
-    }
+    
 }
 

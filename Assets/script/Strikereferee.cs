@@ -48,6 +48,7 @@ public class Strikereferee : MonoBehaviour
             {
                 strick._strickcount += 1;
             }
+            Destroy ( collision.gameObject );
         }
         else
         {

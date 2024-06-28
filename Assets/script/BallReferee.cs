@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class BallReferee : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class BallReferee : MonoBehaviour
     float _timer;
     bool _isTimer;
     [SerializeField] Text text;
+    bool foul = false;
     private void Start()
     {
         bat = GameObject.Find("Circle").GetComponent<Bat>();
@@ -18,7 +20,11 @@ public class BallReferee : MonoBehaviour
     }
     private void Update()
     {
-        
+        if (bat._rotateZ > 220)
+        {
+            foul = false;
+            _bat.boolcollison = false;
+        }
         if (_isTimer)
         {
             _timer += Time.deltaTime;
@@ -34,38 +40,45 @@ public class BallReferee : MonoBehaviour
     {
         if (_bat.boolcollison ==true)
         {
+            foul = true;
             _isTimer = true;
             text.enabled = true;
             text.text = "FOUL";
             text.color = Color.yellow;
-            _bat.boolcollison=false;
+            Destroy(collision.gameObject);
             if ( ball._strickcount < 2)
             {
                 ball._strickcount += 1;
             }
         }
-        else
+        else if (_bat.boolcollison ==false)
         {          
-            if (bat._rotateZ >= 220)
+            if (bat._rotateZ > 220)
             {
                 _isTimer = true;
                 text.enabled = true;
                 text.text = "BALL";
                 text.color = Color.green;
-                Destroy(collision.gameObject);
                 ball._ballcount += 1;
+                Destroy(collision.gameObject);
+                
             }
-            else 
-            {               
-                _isTimer = true;
-                text.enabled = true;
-                text.text = "STRIKE";
-                text.color = Color.yellow;
-                ball._strickcount += 1;
+            else if (bat._rotateZ < 220)
+            {       
+                if(foul == false)
+                {
+                    _isTimer = true;
+                    text.enabled = true;
+                    text.text = "STRIKE";
+                    text.color = Color.yellow;
+                    ball._strickcount += 1;
+                    Destroy (collision.gameObject);
+                }
+                
             }
         }
        
             
-        } 
-    }
+    } 
+}
 

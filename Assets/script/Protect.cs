@@ -10,12 +10,13 @@ public class Protect : MonoBehaviour
     float _timer;
     GameObject gameobject;
     bool _isTimer;
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         protect = GameObject.Find("Gamemanager").GetComponent<Out>();
         gameobject = GameObject.FindGameObjectWithTag("protect");
-        
+        audioSource = GetComponent<AudioSource>();
         
     }
     private void Update()
@@ -46,6 +47,7 @@ public class Protect : MonoBehaviour
             protect._strickcount = 0;
             protect._ballcount = 0;
             Destroy(collision.gameObject);
+            audioSource.Play();
         }
         
     }

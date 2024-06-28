@@ -36,18 +36,5 @@ public class ball : MonoBehaviour
 
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "protect")
-        {
-            _isTimer = true;
-            text.enabled = true;
-            text.text = "OUT";
-            text.color = Color.red;
-            protect._outcount += 1;
-            protect._strickcount = 0;
-            protect._ballcount = 0;
-            Destroy(gameObject);
-        }
-    }
+   
 }
