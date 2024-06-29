@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Batcollison : MonoBehaviour
 {
+    
     AudioSource audiosouce;
   public bool boolcollison = false;
     private void Start()
     {
+       
         audiosouce = GetComponent<AudioSource>();
     }
     public void OnCollisionEnter2D(Collision2D collision)
@@ -22,9 +24,6 @@ public class Batcollison : MonoBehaviour
     }
     private void Update()
     {
-        if(boolcollison == true)
-        {
-            //Debug.Log("true");
-        }
+        
     }
 }

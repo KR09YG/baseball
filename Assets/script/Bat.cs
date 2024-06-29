@@ -10,6 +10,7 @@ public class Bat : MonoBehaviour
     [SerializeField] float _interval = 1f;
     float _timer;
     [SerializeField] bool m_generateOnStart = true;
+    [SerializeField] GameObject gameObject1;
     private void Awake()
     {
         if (m_generateOnStart)
@@ -55,6 +56,14 @@ public class Bat : MonoBehaviour
                 
             }
            
+        }
+        if (_rotateZ > 220)
+        {
+            gameObject1.SetActive(false);
+        }
+        else if (_rotateZ < 220)
+        {
+            gameObject1.SetActive(true);
         }
     }
 }
