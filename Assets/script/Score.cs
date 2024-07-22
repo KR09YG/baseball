@@ -16,10 +16,8 @@ public class Score : MonoBehaviour
     }
 
     public void Update()
-    {
-        
+    {      
         stext = stext.GetComponent<Text>();
-        stext.text = (score.ToString()+"“_");
-        
+        stext.text = (score.ToString()+"“_");       
     }
 }

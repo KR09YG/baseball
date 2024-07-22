@@ -13,16 +13,13 @@ public class Bat : MonoBehaviour
     [SerializeField] GameObject gameObject1;
     private void Awake()
     {
-        if (m_generateOnStart)
-        {
-            _timer = _interval;
-        }
+       
         //_transform = GetComponent<Transform>();
     }
     private void Update()
     {
         _timer += Time.deltaTime;
-        if ( _rotateZ == 1f )
+        if (_rotateZ == 1f)
         {
             _timer = 0f;
         }
@@ -30,8 +27,8 @@ public class Bat : MonoBehaviour
         {
             if (_timer > _interval)
             {
-                
-                if (_rotateZ <= 220)
+
+                if (_rotateZ < 220)
                 {
                     _rotateZ += Time.deltaTime + _batSpeed;
                     transform.localEulerAngles = new(transform.localEulerAngles.x, transform.localEulerAngles.y, _rotateZ);
@@ -50,20 +47,13 @@ public class Bat : MonoBehaviour
                 transform.localEulerAngles
                     = new(transform.localEulerAngles.x, transform.localEulerAngles.y, _rotateZ);
             }
-            else 
-            { 
+            else
+            {
                 _isSwing = false;
-                
+
             }
-           
-        }
-        if (_rotateZ > 220)
-        {
-            gameObject1.SetActive(false);
-        }
-        else if (_rotateZ < 220)
-        {
-            gameObject1.SetActive(true);
+
         }
     }
 }
+

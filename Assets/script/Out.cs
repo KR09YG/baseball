@@ -15,6 +15,7 @@ public class Out : MonoBehaviour
     SpriteRenderer _ballimage2;
     SpriteRenderer _ballimage3;
     [SerializeField] Text text;
+    Score _score;
     float _timer;
     bool _isTimer;
     [SerializeField]  GameObject button;
@@ -29,6 +30,7 @@ public class Out : MonoBehaviour
         _ballimage = GameObject.Find("ball").GetComponent<SpriteRenderer>();
         _ballimage2 = GameObject.Find("ball2").GetComponent<SpriteRenderer>();
         _ballimage3 = GameObject.Find("ball3").GetComponent<SpriteRenderer>();
+        _score = GameObject.Find("Gamemanager").GetComponent<Score>();
     }
 
     // Update is called once per frame
@@ -106,6 +108,8 @@ public class Out : MonoBehaviour
         {
             button.SetActive(true);
             text.text = "GAMESET";
+            PlayerPrefs.SetInt("score", _score.score);
+            PlayerPrefs.Save();
             //Time.timeScale = 0;
         }     
         if(_strickcount > 2)
